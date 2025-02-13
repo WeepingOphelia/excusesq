@@ -12,6 +12,7 @@ def api_req(prefix, affix):
         if response.status_code == 200:
             words = response.json()
             weights = [x["score"] for x in words]
+            random.seed()
             rand_list = random.choices(words, weights=weights, k=1)
             return rand_list[0]
         else:
