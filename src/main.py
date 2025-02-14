@@ -5,18 +5,18 @@ from libber import *
 # from god import *
 
 user = ("Gwynnhwyfar", "Captain")
+test = ["t", "test"]
 affirm = ["y", "yes"]
 deny = ["n", "no"]
 
 def main():
     user_input = input("Would you like an excuse? [Y/N]: ")
-    if user_input.lower() in affirm:     
-        test_excuse = DefaultExcuse()
-        print("My sincere apologies,") 
-        print(adlibber(test_excuse))
-        main()
+    if user_input.lower() in affirm:
+        get_excuse()
     if user_input.lower() in deny:
         quit()
+    if user_input.lower() in test:
+        get_excuse_test()
     else:
         print("Invalid command")
         main()
@@ -36,6 +36,19 @@ def greeting():
     
     print(f"Good {tod}, {user[1]} {user[0]}")
     print(time.strftime("The time is: %H%M", cur_time))
+
+def get_excuse_test():
+    test_excuse = DefaultExcuse()
+    print("My sincere apologies,") 
+    print(dadlibber(test_excuse))
+    main()
+
+def get_excuse():
+    excuse = Excuse()
+    print("My sincere apologies,") 
+    print(chadlibber(excuse))
+    main()
+
 
 greeting()
 main()
